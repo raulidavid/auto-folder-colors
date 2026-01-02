@@ -1,0 +1,81 @@
+{
+  "name": "auto-folder-colors",
+  "displayName": "Auto Folder Colors by Jiban",
+  "description": "Automatically change VS Code colors based on active project folder in multi-root workspaces",
+  "version": "1.0.0",
+  "publisher": "jiban-advanced-systems",
+  "author": {
+    "name": "Jiban Advanced Systems",
+    "email": "info@jiban.ec"
+  },
+  "icon": "icon.png",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": ["Themes", "Other"],
+  "keywords": [
+    "workspace",
+    "colors",
+    "multi-root",
+    "folders",
+    "theme",
+    "color-customization",
+    "project",
+    "organization",
+    "jiban"
+  ],
+  "activationEvents": ["onStartupFinished"],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "autoFolderColors.changeColor",
+        "title": "Change Color Manually",
+        "category": "Auto Folder Colors"
+      },
+      {
+        "command": "autoFolderColors.addFolder",
+        "title": "Add Folder",
+        "category": "Auto Folder Colors"
+      },
+      {
+        "command": "autoFolderColors.editFolder",
+        "title": "Edit Folder Color",
+        "category": "Auto Folder Colors"
+      },
+      {
+        "command": "autoFolderColors.removeFolder",
+        "title": "Remove Folder",
+        "category": "Auto Folder Colors"
+      },
+      {
+        "command": "autoFolderColors.listFolders",
+        "title": "List All Folders",
+        "category": "Auto Folder Colors"
+      }
+    ],
+    "configuration": {
+      "title": "Auto Folder Colors",
+      "properties": {
+        "autoFolderColors.folders": {
+          "type": "object",
+          "default": {
+            "frontend": "#dc3545",
+            "backend": "#007acc",
+            "api": "#28a745"
+          },
+          "description": "Map of folder names to color codes (hex format)"
+        }
+      }
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/raulidavid/auto-folder-colors"
+  },
+  "homepage": "https://github.com/raulidavid/auto-folder-colors#readme",
+  "bugs": {
+    "url": "https://github.com/raulidavid/auto-folder-colors/issues"
+  },
+  "license": "MIT"
+}
