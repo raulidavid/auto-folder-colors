@@ -2,7 +2,7 @@
   "name": "auto-folder-colors",
   "displayName": "Auto Folder Colors by Jiban",
   "description": "Automatically change VS Code colors based on active project folder in multi-root workspaces",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "publisher": "jiban-advanced-systems",
   "author": {
     "name": "Jiban Advanced Systems",
@@ -12,7 +12,10 @@
   "engines": {
     "vscode": "^1.80.0"
   },
-  "categories": ["Themes", "Other"],
+  "categories": [
+    "Themes",
+    "Other"
+  ],
   "keywords": [
     "workspace",
     "colors",
@@ -24,13 +27,20 @@
     "organization",
     "jiban"
   ],
-  "activationEvents": ["onStartupFinished"],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "main": "./extension.js",
   "contributes": {
     "commands": [
       {
         "command": "autoFolderColors.changeColor",
         "title": "Change Color Manually",
+        "category": "Auto Folder Colors"
+      },
+      {
+        "command": "autoFolderColors.applyManualColor",
+        "title": "Apply Color Without Workspace",
         "category": "Auto Folder Colors"
       },
       {
@@ -59,11 +69,7 @@
       "properties": {
         "autoFolderColors.folders": {
           "type": "object",
-          "default": {
-            "frontend": "#dc3545",
-            "backend": "#007acc",
-            "api": "#28a745"
-          },
+          "default": {},
           "description": "Map of folder names to color codes (hex format)"
         }
       }
@@ -77,5 +83,16 @@
   "bugs": {
     "url": "https://github.com/raulidavid/auto-folder-colors/issues"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.80.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "20.x",
+    "mocha": "^10.2.0",
+    "@vscode/test-electron": "^2.3.3",
+    "glob": "^10.3.3"
+  }
 }
